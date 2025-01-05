@@ -1,0 +1,9 @@
+Implement a method that performs matrix multiplication and returns the product of its two parameters as a result. First, download the empty MatrixMult.java Download MatrixMult.java. Now, finish writing the multiplyMatrices method.
+
+If you don’t know how to multiply two matrices, check out this explanation: https://www.mathsisfun.com/algebra/matrix-multiplying.htmlLinks to an external site.
+
+Make the method check whether the multiplication is legal, i.e. the width of the first matrix should be equal to the height of the second, and warn the user if it isn’t.
+
+To test these methods, you will have to write your own main method, call the algorithm with different inputs and check their outputs.
+
+Hint: You could use Arrays.toString to print an array if you feel so inclined.

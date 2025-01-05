@@ -1,0 +1,18 @@
+Printing out a Matrix diagonally
+Screenshot from 2021-07-21 16-19-44.png
+Write a method diagonalPrint that prints a two-dimensional integer array diagonally.
+For example, the matrix shown below should be printed out as shown:
+Required print:
+1 5 2 9 6 3 10 7 4 11 8 12 
+Place a space between each number.
+Your method should work for any rectangular (i.e. all rows are of equal length, all columns are of equal length) two-dimensional integer matrix. Test your method with 2-3 different arrays to test its validity. Write your code in the diagonalPrint method.
+public static void diagonalPrint (int[][] M) {...} 
+Assignment 6.2:
+Imagine a 1-dimensional integer array A of length N. Values of the elements lie between 0 and k-1 (where 1<=k<=N). We are interested in finding the shortest consecutive section of array A (i.e. the consecutive terms A[i], A[i+1],...) where all values between 0 and k-1 appear and more specifically the length of that shortest section.
+Write a method called allNumsWithinwhich takes as parameters A and k and then computes the minimum length of a section of array A that satisfies the above property, i.e. it contains all values from 0 to k-1. If such a part does not exist, then the method should return 0.
+Example 1
+with A={0,2,0,2,0,2,2,1,1,0} and m=3 allNumsWithin(A,m) should return 4, since the underlined part has length 4 and contains all numbers from 0 to 2.
+Example 2
+with B={0,1,1,4,0,2,0,1,0,2} and l=5 allNumsWithin(B,l) should return 0, since there is no part that contains all numbers between 0 and 4 (actually 3 never appears).
+Hint: We think a recursive implementation might be the easiest, but it is not required. Actually, it might be a good exercise to implement the method in a straightforward way and wait until after the recursion lecture/lab to attempt a recursive solution. 
+public static int allNumsWithin(int[] A, int k) {...}

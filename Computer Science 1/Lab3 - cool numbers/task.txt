@@ -1,0 +1,28 @@
+Given a (non-zero) positive integer n, a number is considered “cool” if n is divisible by each of the number’s digits without remainder. 
+
+Some examples follow:
+
+If n=16, then 2418 is a “cool” number because 16/2=8, 16/4=4, 16/1=16, 16/8=2 (none of these divisions leaves a remainder).
+If n=16, then 489 is not a “cool” number because 16/9=1 and leaves a remainder of 7. Note that the other digits are divisible with no remainder, however recall that we want all of them to be divisible.
+If n=5, then 10000 is not a “cool” number since division by 0 is not possible -you need to take care of that in your program.
+
+Your program should read three integers n, a and b. Given n, the program will count all possible “cool” numbers between a and b (including a and b).
+
+ 
+
+First, download the empty CoolNumbers.java Download CoolNumbers.javafile from Canvas, and start writing the two algorithms in two separate methods. :
+
+ 
+
+Write a method that given any positive integer (let that be x) and an integer n determines whether the number is “cool” or not (this means the method will return a boolean). The signature is given below. This method returns true if the input a is “cool”, and false otherwise. Check your method in the main. 
+ 
+
+
+public static boolean isCool(int x, int n)
+ 
+ Write  a  method  that  counts  (and  returns)  how many “cool” numbers exist  between a and b (which are provided as parameters) given a specific integer n. In this method, (re)use your method from a).  The signature is given below. This method returns the number of cool numbers between a and b. Check your method in the main. 
+   public static int countCools(int n, int a, int b)   
+   //update on Sept.9th: order of arguments is n, a, b
+ 
+
+To test these methods, you will have to write your own main method, call the two methods with different inputs and check their outputs.

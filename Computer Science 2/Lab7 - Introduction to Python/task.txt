@@ -1,0 +1,20 @@
+Exercise 1 (5 points)
+Write a program that creates a class Customer (with a constructor with two parameters: name and
+prod list) which contains the name of the customer and a list with all his products (names and
+prices).
+1. You should create a function (equal to method in java) named add with two parameters: name
+and amount, that adds new products with their prices to this list.
+2. You should create a function products, that returns all the products of the customer along
+with their prices as a list of tuples.
+3. You should create a function expensive products, with a parameter price, that returns only
+a list of names of the products that cost more than a specific value. In case this function would
+return only a single value, you may also return a single string instead of a list.
+Name the file that contains the Customer class customer.py.
+Exercise 2 (5 points)
+A prime number is a whole number greater than 1 that cannot be made by multiplying other whole
+numbers. In other words, it can be divided only with 1 and itself.
+Write a function (not a class) generate primes with a parameter end that generates primes from 1
+to end. Name the file that contains the generate primes function primes.py (also provided as a
+template).
+Write a test program that calculates all the prime numbers from 1 up to 100.
+1

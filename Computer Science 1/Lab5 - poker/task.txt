@@ -1,0 +1,42 @@
+According to Oxford Learner's Dictionaries, Poker is "a card game for two or more people, in which the players bet on the values of the cards they hold". If you never played Poker, don't panic! You do not need to know all the rules to implement this assignment. However, being familiar with the Texas Hold'em game may be helpful to understand the goal of this assignment (you can read more hereLinks to an external site.). The main concepts you must understand is that each player (we will consider only two in our case) holds two cards (called "hole cards") which are unknown by the opponent and five community cards which are shared so all the player can use them to create their best hand (you can learn more about the Poker hand ranking hereLinks to an external site.).
+
+In this assignment, we will implement a few methods that would help us implement a complete Texas Hold'em app. This assignment is divided into three exercises that can be solved independently although the order proposed is recommended. A template is provided to be sure you are using the expected structure and variables. You can find it here Download here.
+
+Additionally, a file with some helper methods is provided here Download here. This file contains:
+
+A method to facilitate the addition of elements (type String) in a 2-dimensional array of Strings
+add_element_2Darray
+If you are familiar with the use of ArrayList, you are free to use it. However, you must provide the methods as described in the exercises below. Therefore, you may consider the use of ArrayLists internally in the code while allowing the required input and output types. If this is the case, two methods are also provided to facilitate the "transformation" from array to ArrayList and vice versa
+Array2ArrayList
+ArrayList2Array
+Note: The format of the cards used in this assignment can be seen in the complete deck provided in the template as String[] deck.
+
+ 
+
+Exercise 1: Let's start with something simple. When implementing a card game, you may need to have a method to discard cards from the deck, a player hand, etc. In this exercise you must implement such a method. The signature of the method must be as follows:
+
+    public String[] discard_cards(String[] initialCards, String[] cardsToDiscard)
+The variable initialCards contains the initial cards from where you want to take some cards (following the initial example, it could be the deck or a player's hand) while cardsToDiscard is a non-empty array that contains the cards to be discarded. The method must return an array containing all the cards in initialCards that are not included in cardsToDiscard. Notice that they may be cards in cardsToDiscard which are not contained in initialCards! We know that you are completely capable to quickly implement a solution using loops. However, you must do it USING RECURSION (this is the goal of this module, isn't it?).
+
+Note: The template includes a piece of test to verify this method. Use it before submitting your code to CodeGrade.
+
+Note 2: To facilitate the testing process, we made use of some Object-Oriented Programming concepts. Do you not need to understand them at this point. More on this will be covered in the course Introduction to Computer Sciences 2 in Period 2.
+
+ 
+
+Exercise 2: Now, we will implement a more "Poker-ish" method. When playing poker, you must be able to quickly identify your best hand. It would be really annoying if you reject a blind to realize later that you had a good hand! However, in the Texas Hold'em version, the combinations are much higher since you can use the community cards (for simplicity, we will consider that you can even use all the cards from the community ones). In this exercise you must implement a method that, given a set of cards cardsAvailable (initially 7 cards, 2 from the player's hand and the 5 community cards but it must accept any number of cards as input), calculates all the possible combinations of 5 cards in this set. To facilitate the implementation and testing, we will use a global variable to keep track of the combinations (see player_combinations in the template provided). You must USE RECURSION and the following method signature (this must be the recursive method):
+
+    public static void possible_hands (String[] cardsAvailable, String[] cardsOnHands)
+The input variables are used to keep track of the available cards (cardsAvailable) and the ones already selected to build the hand of 5 cards (cardsOnHands). As an example, the code could be use as follows:
+
+    String[] available_cards = {"cA", "pQ", "c2", "c5", "p6", "pA", "pK"};
+    possible_hands(available_cards, new String[0]);
+Note: The template includes a piece of test to verify this method. Use it before submitting your code to CodeGrade.
+
+Note 2: To facilitate the testing process, we made use of some Object-Oriented Programming concepts. Do you not need to understand them at this point. More on this will be covered in the course Introduction to Computer Sciences 2 in Period 2.
+
+ 
+
+Exercise 3: Similarly, you opponent will look for his/her best combination to take your money! Therefore, it would be nice to have a way to know which are the combinations that your opponent may have. In this case, the method will be quite similar to the previous one (we recommend that you use it as the initial code for this one) but you have some extra restrictions. More specifically, you do not know the cards in his/her hands (😞) but you know that s/he must need, at least, three cards from the community cards (😎). Implement, USING RECURSION, a method that receives all the available cards (array cardsAvailable) and an array containing the community cards (cardsOnCommunity) and updates a global variable storing all the possible combinations for your opponent (opponent_combinations). Notice that you must update this 2D array only if the requirement previously mentioned is met (at least 3 cards from the community are used). It is important to consider that cardsAvailable will also contain the cards in cardsOnCommunity. The signature of the recursive method to be used is as follows:
+
+    public static void possible_hands_opponent (String[] cardsAvailable, String[] cardsOnCommunity, String[] cardsOnHands)

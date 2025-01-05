@@ -1,0 +1,40 @@
+Exercise 1 (5 points)
+Implement a class Car with the following properties. A car has a certain fuel efficiency (measured
+in liters/km) and a certain amount of fuel in the tank. The efficiency is specified in the constructor
+and the initial fuel level is 0. First, implement an accessor boolean method canDrive that can
+decide whether the car can drive a certain distance with the current amount of fuel in the tank. Then,
+implement a mutator method drive that simulates driving the car for a certain distance, reducing
+the amount of fuel in the tank. In addition, implement an accessor method getFuel, returning the
+current amount of fuel in the fuel tank, and a mutator method addFuel, to add fuel to the tank.
+Test the methods of the class Car in the main method for the case when the car has been tanked
+initially 40 liters of fuel and has to drive fro 400 km.
+To simplify automatic grading of your solution please employ the following definitions of the methods
+of class Car:
+public Car(double efficiency)
+public boolean canDrive(double distance)
+public void drive(double distance)
+public double getFuel()
+public void addFuel(double fuel)
+Exercise 2 (5 points)
+In this assignment you will enhance the class Car that you implemented for Exercise 1.
+Begin with a simple enhancement: add an instance variable to the Car class that represents the
+car motor number. Modify the constructor of the Car class so that it assigns the motor number
+sequentially. This means that the first Car object will get motor number 1, the second Car object will
+get motor number 2, and so on. The second enhancement will help car owners to see how many
+litters of fuel that added each time they were filling the tank. For that purpose you need to modify the
+fields, constructor, and method addFuel in the class Car. The modified method addFuel in addition
+to its previous functionality has to create a String object that describes the car number and amount
+of fuel added to the tank. This String object has to be added to a global String object that contains
+the descriptions of all the tank fillings so far for all the Car objects created. An example of the content
+of the global String object is given below:
+Car Motor Number 3: 20 liters
+Car Motor Number 143: 15 liters
+...
+Car Motor Number 3: 15 liters
+Car Motor Number 2: 45 liters
+Provide an access method fuelRefills for the global String object and test this method in the
+main method of the class Car when creating 3 – 4 Car objects.
+Hint: the global String object has to be referred by a static variable.
+To simplify automatic grading of your solution please employ the following definition of method
+fuelRefills of class Car:
+public static String fuelRefills()

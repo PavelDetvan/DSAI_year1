@@ -1,0 +1,59 @@
+Exercise 1 (3 points)
+Write a program that draws a picture of a house. It could be as simple as the accompanying figure,
+or if you like, make it more elaborate (it must include, at least, a facade, a window, a door and the
+roof). Show the world your talent!
+Implement a class House and supply a method draw(Graphics2D g2) that draws the house.
+Exercise 2 (3 points)
+Write a program that displays the Olympic rings. Color the rings in the Olympic colors.
+Provide a class OlympicRingViewer and a class OlympicRingComponent.
+1
+Exercise 3 (4 points)
+Enhance the ButtonViewer program (see the code below) so that it has two buttons, each of which
+prints a message “I was clicked n time”. The value n should be incremented with each click and
+may reflect the number of times the relevant button was clicked (therefore, two different counters
+are needed). Make sure that all the components and functionalities are properly shown in the
+video to be submitted!
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+/**
+* This program demonstrates how to install an action listener.
+*/
+public class ButtonViewer {
+public static void main(String[] args) {
+JFrame frame = new JFrame();
+JButton button = new JButton("Click me!");
+frame.add(button);
+ActionListener listener = new ClickListener();
+button.addActionListener(listener);
+frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+frame.setVisible(true);
+}
+private static final int FRAME_WIDTH = 100;
+private static final int FRAME_HEIGHT = 60;
+}
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+/**
+* An action listener that prints a message.
+*/
+public class ClickListener implements ActionListener {
+public void actionPerformed(ActionEvent event) {
+System.out.println("I was clicked.");
+}
+}
+2Exercise 3 (4 points)
+Enhance the ButtonViewer program (see the code below) so that it has two buttons, each of which
+prints a message “I was clicked n time”. The value n should be incremented with each click and
+may reflect the number of times the relevant button was clicked (therefore, two different counters
+are needed). Make sure that all the components and functionalities are properly shown in the
+video to be submitted!
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+/**
+* This program demonstrates how to install an action listener.
+*/
+public class ButtonViewer {
+public static void main(String[] args) {
