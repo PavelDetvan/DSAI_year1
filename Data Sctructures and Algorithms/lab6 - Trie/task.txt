@@ -1,0 +1,134 @@
+In this assignment, you will be implementing a program that indexes a book using a Trie data structure. Your program should read in a text file and compile an index of words and on which lines they appear in the file, sorted alphabetically and ignoring case and punctuation.
+
+Your program should operate as follows:
+
+Read in the text file.
+Parse the text into individual words, ignoring case and punctuation.
+To do this, write a simple “tokenizer” that returns each word in the text word-by-word without any punctuation marks, all in the same case, and stripped of non-alphabetical characters.
+Insert each word into an efficient Trie data structure. This makes sure that we do not store any unnecessary information.
+For each word, keep track of the line numbers where it appears.
+Input:
+
+It was the best of times,
+it was the worst of times,
+it was the age of wisdom,
+it was the age of foolishness,
+Output:
+
+trie.search(age) // Returns [3, 4]
+trie.search(foolishness) // Returns [4]
+trie.search(times) // Returns [1, 2]
+You must implement the following parts of the program:
+
+Trie class: A class that implements the Trie data structure. The class should have the following methods:
+insert(String word, int lineNumber): Inserts a word into the Trie and associates it with a line number.
+search(String word): Returns a list of line numbers where the given word appears in the text.
+(optional) print(): Prints the Trie in alphabetical order, along with the line numbers where each word appears.
+All the methods in the Trie.Node inner class.
+// A class to store a Trie node
+public class Trie {
+
+    public Node root;
+
+    public Trie() {
+        root = new Node();
+    }
+
+    public void insert(String word, int value) {
+        // TODO Implement this
+    }
+
+    public int[] search(String word) {
+        // TODO Implement this
+        // Return an empty integer array if the word is not present in the trie
+    }
+
+    public class Node {
+        public Node[] children; // The node's children
+        private boolean isEnd; // Is the node the end of a word?
+        private List<Integer> values; // This stores the line numbers
+
+        public Node() {
+            children = new Node[26]; // 26 letters in the alphabet
+            values = new ArrayList<>();
+        }
+
+        public Node getNode(char ch) {
+            // TODO Implement this
+        }
+
+        public void setNode(char ch, Node node) {
+            // TODO Implement this
+        }
+
+        public boolean containsKey(char ch) {
+            // TODO Implement this
+        }
+
+        public void setEnd() {
+            isEnd = true;
+        }
+
+        public boolean isEnd() {
+            return isEnd;
+        }
+
+        public void addValue(int value) {
+            // TODO Implement this
+        }
+
+        public int[] getValues() {
+            // Magically turns Lists into arrays
+            return values.stream().mapToInt(i -> i).toArray();
+        }
+    }
+}
+You may include other methods if you need them. Besides the aforementioned Trie class, you will also need:
+
+A Main class: The main class that reads the input file and uses the Trie class to create the index. The class should have the following methods:
+clean(String word): Cleans a word by removing punctuation and converting it to lowercase.
+(Hint: use java’s Character.isLetter(c) method)
+processLine(String line, int lineNumber, Trie trie): Processes a line of text and inserts each word into the Trie.
+(Hint: split the line using java’s split() method on the “ “ character)
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Main {
+
+    public String clean(String word) {
+     // TODO: Implement this
+    }
+
+    public void processLine(String line, int lineNumber, Trie trie) {
+     // TODO: Implement this
+    }
+
+    public static void main(String[] args) {
+        if (args.length != 1) {
+            System.err.println("Usage: java Main <input_file>");
+            System.exit(1);
+        }
+        String inputFile = args[0];
+        Trie trie = new Trie();
+        Main main = new Main();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(inputFile))) {
+            String line;
+            int lineNumber = 1;
+            // Read the text line by line
+            while ((line = br.readLine()) != null) {
+                main.processLine(line, lineNumber, trie);
+                lineNumber++;
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
+            System.exit(1);
+        }
+        // Test your implementation here.
+        // i.e.  trie.search(“my”);    
+     }
+}
+You may include other methods or (inner) classes if you need them, but be sure to not remove methods or classes listed above.
+
+You can try the algorithm on your own input. Attached here you’ll also find a .txt file of part of Marcus Aurelius’ Meditations Download Marcus Aurelius’ Meditationson which you can experiment.

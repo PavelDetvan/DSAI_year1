@@ -1,0 +1,25 @@
+Objective
+
+Implement an efficient algorithm to check if a Binary Tree is an AVL tree.
+Tasks
+
+Implement the method isAVLTree in the class BinaryTreeUtils, that takes as input a Binary Tree and returns true if the input is an AVL tree, and false otherwise. 
+Discuss the time and space complexity of your solution. The goal is for your program to have O(n) time complexity and O(n) space complexity.
+
+Instructions
+
+Consider the given files BinaryTree.java, BinaryTreeNode.java, and BinaryTreeUtils.java.
+Implement the method isAVLTree in BinaryTreeUtils.java which takes as input a BinaryTree<E> instance and returns a boolean value: the returned value is true if the Binary Tree in input is an AVL Tree, and false otherwise.
+You are encouraged to use the implementation of a binary tree provided in the ArrayBinaryTree.java and ArrayBinaryTreeNode.java files to test your solution before submitting it on CodeGrade.
+You may use the built-in Java implementations of List, if you deem this necessary.
+
+For implementing your solution:
+Recall the definition of an AVL tree: an AVL tree is a BST such that for every internal node v, the heights of the children of v can differ by at most 1.
+Recall the definition of a BST: a BST is a Binary Tree such that, given 3 nodes u, v, and w such that u is in the left subtree of v and w is in the right subtree of v, we have key(u) ≤ key(v) ≤ key(w) .
+Define an auxiliary function to verify that the Tree in input is a BST.
+HINT: an in-order visit of a BST should visit the nodes from smallest to largest.
+Define an auxiliary function to verify that the Tree in input verifies the property of an AVL tree
+HINT: you can recursively compute the heights of the subtrees of a node. Then, if the property is verified, you can compute the height of the node and return it. Otherwise, you can return a negative number.
+Combine the results of the two auxiliary functions to return the correct boolean value.
+Discuss the complexity in a comment: what are the time and space complexities of your solution? is this efficient? Can we optimize it?
+Test your solution locally before submitting it on CodeGrade. Experiment with different input trees, considering edge cases (null input, empty tree, degenerate trees, perfectly balanced trees, balanced but not ordered, ordered but not balanced).

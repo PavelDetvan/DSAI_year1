@@ -1,0 +1,21 @@
+Objective
+
+Implement an efficient solution to find all the nodes which are reachable from both the nodes a and b in a graph.
+Tasks
+
+Implement the method findReachableNodes in the class GraphUtils, that takes as input a Graph and two nodes a and b, and returns a Set of nodes which are reachable from both a and b.
+Discuss the time and space complexity of your solution. The goal is for your program to have O(n+m) time complexity, where n is the number of nodes in the graph, and m is the number of edges.
+
+Instructions
+
+Consider the given files Graph.java and GraphUtils.java.
+Implement the method findReachableNodes which takes as input a Graph<T> instance and two T nodes a and b. It returns all the nodes x such that a path between a and x exists and a path between b and x exists.
+You are encouraged to use the implementation of a graph provided in the AdjacencyListGraph.java and EdgeNode.java files to test your solution before submitting it on CodeGrade.
+You may use the built-in Java implementations of Set, as HashSet, if you deem this necessary.
+
+For implementing your solution:
+Recall the visiting algorithm for a graph. Which algorithm can be used to obtain all the nodes which are reachable from a given source s? How can we modify it to keep track of all these nodes in an efficient way?
+Apply the algorithm using as source first the node a, then the node b.
+Combine the results to find the set of items which appear in both the results.
+Discuss the complexity in a comment: what is the time complexity of your solution? is this efficient? Can we optimize it?
+Test your solution locally before submitting it on CodeGrade. Experiment with different input trees, considering edge cases (null inputs, empty graph, nodes a and b not present in the graph, resulting Set containing nodes at different distances from the two nodes a and b, resulting Set empty).

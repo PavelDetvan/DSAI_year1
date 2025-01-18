@@ -1,0 +1,88 @@
+The odd-even mergesort algorithm was developed by K.E. Batcher. It is based on a merge algorithm that merges two sorted halves (A, B, of lengths s and t respectively) of a sequence to one completely sorted sequence (C, of length s + t). In contrast to regular mergesort, this algorithm is not data dependent, i.e. the same comparisons are performed regardless of the actual data. Therefore, odd-even mergesort can be implemented as a sorting network.Links to an external site.
+
+The original paper for the algorithm can be found here: http://www.cs.kent.edu/~batcher/sort.pdfLinks to an external site. 
+
+int[] sort(int[] arr)
+    // The recursive base-case
+    if (arr.length <= 1) {
+        return arr;
+    }
+
+    // Separate the input into two arrays (stored at separated[0] and separated[1].
+    // Split based on odd/even indices.
+    int[][] separated = separateOddEven(arr);
+
+    // Recursively sort the separated arrays.
+    int[] odd = sort(separated[0]);
+    int[] even = sort(separated[1]);
+
+    // Merge the separated arrays back together. Merge based on odd/even indices.
+    int[] merged = oddEvenMerge(odd, even);
+    // Put the merged array into the correct order (this step can also be done in the oddEvenMerge
+    int[] sorted = compareExchange(merged);
+
+    return sorted;
+This algorithm modifies the merge sort algorithm's split and merge steps. Instead of splitting input arrays into two halves by taking the first and second halves, it splits and merges the arrays based on odd and even indices of the elements.
+
+Objective
+
+To implement the OddEvenMerge algorithm as a sorting algorithm using the mergesort technique, i.e. going from pseudocode to programming code.
+To understand and learn to apply the concept of the (recursive!) divide-and-conquer algorithm.
+In our case, we will be implementing this in a way such that we enter in one large array, consisting of two concatenated half-length sub-arrays (lengths s and t, both , both of which are already sorted beforehand.
+Tasks
+
+Write a Java class named OddEvenMergeSort.
+ 
+Define the sort method in the OddEvenMergeSort class.
+
+This method will be your recursive method, in other words, this is where the majority of the OddEvenMerge algorithm above can be implemented.
+public int[] sort(int[] arr) {
+    // The recursive base-case
+    if (arr.length <= 1) {
+        return arr;
+    }
+
+    // Separate the input into two arrays (stored at separated[0] and separated[1].
+    // Split based on odd/even indices.
+    int[][] separated = separateOddEven(arr);
+
+    // Recursively sort the separated arrays.
+    int[] odd = sort(separated[0]);
+    int[] even = sort(separated[1]);
+
+    // Merge the separated arrays back together. Merge based on odd/even indices.
+    int[] merged = oddEvenMerge(odd, even);
+    // Put the merged array into the correct order (this step can also be done in the oddEvenMerge
+    int[] sorted = compareExchange(merged);
+
+    return sorted;
+}
+Implement the sort method to sort the given array arr in ascending order (from smallest to largest) using the OddEvenMerge algorithm, as described above - if the halting condition does not apply, separate the array into odd and even arrays (as specified in the pseudocode) using a call to the separateOddEven method (instructions in part 4 below). Using these two separated arrays, recursively apply the sort method to these two arrays. 
+The next step in the sort method is to merge the (sorted) resulting arrays obtained from recursively sorting them, using a call to the oddEvenMerge method (detailed below in step 5). Afterwards, we apply the compareExchange method (detailed in step 6), which loops through the resulting array from left to right, swapping elements in the array if the current element is smaller than the element preceding it.
+To separate the input array into odd and even arrays (returning 1 integer array containing these 2 integer arrays), you may use the following method:
+public int[][] separateOddEven(int[] arr) {
+    // Your code here
+}
+Note: Due to a mistake in the solution/test code, you may assume in this case that we consider the array as a whole for splitting up into odd and even arrays, rather than splitting up the separate arrays. So the odd array is every 2nd entry in the array, the even array is every 1st entry in the array. 
+Example Input: {1,3,4,0,2,5}, Example output: odd = {3, 0, 5} even = {1, 4, 2}
+Example Input: {1,3,4,0,2,5, 6}, Example output: odd = {3, 0, 5} even = {1, 4, 2, 6}
+
+Implement the oddEvenMerge method to merge the "odd" and "even" arrays into a single array using the OddEvenMerge algorithm. This part can be implemented using a helper method as follows:
+public int[] oddEvenMerge(int[] oddArr, int[] evenArr){
+    // Your code here
+}
+This method should take in two sorted arrays (oddArr, evenArr) and merge them into a single array (output) using the OddEvenMerge algorithm.
+Example Input: odd = {1, 3, 4} even = {0, 2, 5}, Example output: {1, 0, 3, 2, 4, 5}
+Example Input: odd = {1, 3, 4, 6} even = {0, 2, 5}, Example output: {1, 0, 3, 2, 4, 5, 6}
+
+Alternatively, you can combine the compareExchange method explained next with the oddEvenMerge, in which case your output will be:
+Example Input: odd = {1, 3, 4} even = {0, 2, 5}, Example output: {0, 1, 2, 3, 4, 5}
+Example Input: odd = {1, 3, 4, 6} even = {0, 2, 5}, Example output: {0, 1, 2, 3, 4, 5, 6}
+ 
+To compare and exchange elements in the output array, you should use the following method. This loops through the array once, swapping elements placed side-by-side if the preceding element is smaller than its following element. 
+public int[] compareExchange(int[] input) {
+    // Your code here
+} 
+So in the case of {1, 0, 3, 2, 4, 5, 6}, we swap 1 and 0, we do not swap 1 and 3, we do swap 2 and 3, we do not swap 3 and 4, we do not swap 4 and 5, and we do not swap 5 and 6. Thus our resulting array is {0, 1, 2, 3, 4, 5, 6}.
+
+Test your implementation using the provided OddEvenMergeSortTester class.

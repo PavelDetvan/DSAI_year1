@@ -1,0 +1,11 @@
+Objective
+
+Develop an efficient algorithm for spell checking using a HashTable
+Experiment with different hash functions and table sizes, and measure the performance of each configuration.
+Tasks
+
+Complete the provided HashTable class that can insert, search, and delete elements using the hashFunction method.
+Complete the provided SpellChecker class that takes a string as input, check each word against the HashTable and returns a list of misspelled words.
+Complete the provided HashTableTester class that tests the performance of the spell checker by measuring the time taken to check a document, the number of collisions, and the average search time for a randomly selected word.
+Experiment with different hash functions and table sizes, and measure the performance of each configuration using the method implemented in the HashTableTester class.
+Comment on the results of the experiments at the top of your source code.
