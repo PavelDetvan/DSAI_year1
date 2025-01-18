@@ -1,0 +1,154 @@
+In this assignment, you will practice designing a software system using Unified Modeling Language
+(UML) class and sequence diagrams. This is an essential skill for any software engineer, as it allows you
+to visualize and communicate the structure and behavior of software systems before implementing
+them. By completing this assignment, you will also practice designing loosely coupled and maintainable
+software systems, which are critical for developing software that can be modified and extended over
+time.
+Specifically, you will read a description of a restaurant ordering system and create a UML class diagram
+that captures the key classes, interfaces, properties, and methods of the system. You will also create
+separate sequence diagrams for three different ordering-entry methods. Finally, you will write empty
+classes and interfaces for your class diagram and organize them into packages that reflect the logical
+structure of the system. You will also create sample instances of the classes to illustrate how they
+interact with each other.
+Follow the following steps and hand in the deliverables before the deadline:
+1. Read the assignment carefully. Ask any questions you have before the start of the assignment.
+2. Try to recognize classes that you need from the description of the software. Write down those
+classes and see if you can imagine implementing them such that they, combined together, form
+the software that implements all the features.
+3. Now, draw a UML class diagram. Make sure to include important constructors, public methods
+and properties. You do not need to include methods and properties that are not important to
+understanding how your software functions. However, make sure that you include them where
+they matter.
+4. Draw separate sequence diagrams for all three ordering-entry methods described below.
+5. Write the classes, interfaces, fields and important methods that define your class model. You
+do not have to implement the methods; just write empty methods without any implementation.
+6. Place your classes and interfaces in appropriate packages (for Java, this means using an
+appropriate directory structure). Place classes that belong together in the same package (i.e. in
+the same directory). Make dependencies between these packages that are loosely coupled, i.e.
+you shouldn’t create circular dependencies nor create too many dependencies between classes
+that should not have dependencies. Once you have done this, make sure that your class diagram
+matches your package structure.
+7. For all relations (such as for instance the menu - dish / order - deliveries) create a few sample
+instances of whatever they aggregate. For instance, for the menu, create an instance of a
+starter, main dish, drink and desert in the constructor of the menu class. You may do this in a
+separate method in the case that it makes no sense to do so in the constructor. Create a few
+orders and deliveries. Every time you have some relation between two classes in your class
+diagram, you must show this relation using examples in your code.
+8. Deliverables: Upload your diagrams and source code in separate files to canvas before the
+deadline to be graded. Optional: If you made any assumptions or you would like to give further
+explanation, you can write text in the UML diagram or upload a pdf with some text.
+Summary of requested deliverables:
+• UML class diagram: This should include important constructors, public methods, and properties
+of the classes that will implement the software's features. Methods and properties that are not
+important to understanding how the software functions may be omitted. Ensure that you
+include them where they matter.
+• Three Sequence diagrams: Draw separate sequence diagrams for all three ordering-entry
+methods described in the assignment.
+• All class and interface definitions: Write the classes, interfaces, fields, and important methods
+that define your class model. Implementation of methods is not necessary at this stage.
+• Package structure: Place your classes and interfaces in appropriate packages (for Java, this
+means using an appropriate directory structure). Ensure that classes that belong together are in
+the same package (i.e. in the same directory), and create loosely coupled dependencies
+between packages to avoid circular dependencies and too many dependencies between classes
+that should not have dependencies. Ensure that your class diagram matches your package
+structure.
+• Sample instances: Create a few sample instances of whatever is aggregated by the relations in
+your class diagram (e.g. starters, main dishes, drinks, desserts for the menu). Create a few
+orders and deliveries as well. Every relation between two classes in your class diagram must be
+shown using examples in your code
+Description
+You work for a new start-up that wants to develop and sell software that allows restaurants to digitalize
+their menus and create an order process for their customers. The goal is to streamline the logistics for a
+food business. We need to track orders going through three stages: customer, kitchen, and
+waiter/delivery person.
+The software should be designed such that it can be used for any type of restaurant, from pizzeria to
+bistro, from lunch café to snack bar. Both for in-restaurant dining as well as take-away and delivery.
+Your goal at the start of the development is to create a comprehensive design of all the classes involved.
+Users and Stakeholders:
+The users of the software will be restaurant staff and customers, while the stakeholders will be the
+restaurant owners and the software development team.
+Features and Requirements:
+The software should have the following features and requirements:
+• A restaurant menu presenting all dishes with their ingredients, drinks, and desserts.
+• An order-entry module where customers, servers, or other systems can enter orders:
+• Through a web-interface for home delivery.
+• Through a web-interface for in-restaurant ordering by scanning a QR code, browsing
+through the menu and ordering.
+• By a server/worker in the restaurant who takes and enters the customer’s order.
+• By offering their menu through an API to Uber-eats / Thuisbezorgd / Takeaway /
+Deliveroo etc.
+• A delivery module that manages deliveries to customers.
+• The ability to calculate prices using custom-made classes that take into account different pricing
+models, such as discounts and happy hours.
+• Compatibility with different types of restaurants and the ability to integrate with third-party
+delivery services.
+Pricing:
+Different restaurants use different ways to calculate the prices of their dishes. Therefore, you’ll design
+the software such that it is possible to use on or more custom-made classes that calculate prices. For
+instance:
+• Restaurant A wants their dishes to be 10% more expensive if eaten in.
+• Restaurant B offers a discount of 5% for lunch orders placed between 10.00 and 11.00 a.m.
+• Restaurant C has a happy hour between 16:00 and 18:00, two cocktails for the price of 1!
+• Restaurant C also wants their dishes to be 5% more expensive if eaten in.
+Our company will offer this customization as a bespoke service when the restaurant purchases the
+software. This means that, our company will implement the pricing strategy in Java for the customer.
+However, the design must allow for uniform implementation, addition, and modification of the pricing
+strategy. Ensuring that restaurants can easily change their pricing strategy. Therefore, in the design an
+interface should be included that allows the implementation of arbitrary pricing strategies.
+To achieve this, the system will consist of several modules:
+1. The menu module which presents all dishes with their ingredients, drinks, and desserts. Each
+restaurant has a menu with different menu items. These items can consist of drinks, main
+dishes, side dishes, desserts, etc. In some cases, such as main dishes, the price of the dish will
+depend on its ingredients.
+2. The order-entry module allows customers, servers, or other systems to enter orders. Customers
+can place orders through a web interface for home delivery, through a web interface for in-
+restaurant ordering by scanning a QR code and browsing through the menu, or by a
+server/worker in the restaurant who takes and enters the customer’s order. The restaurant can
+also offer their menu through an API to third-party delivery services such as Uber Eats,
+Thuisbezorgd, Takeaway, and Deliveroo.
+3. The pricing module allows for custom pricing for each restaurant. Different restaurants use
+different ways to calculate the prices of their dishes. Therefore, the software should be designed
+such that it is possible to use one or more custom-made classes that calculate prices.
+4. The delivery module manages deliveries to customers. If customers order through the web
+interface, a delivery must be made. The restaurant has several deliverers who deliver orders.
+When an order is placed, it takes some time to prepare it in the kitchen. After this, the order
+should be delivered as soon as possible by an available deliverer.
+The goal of this project is to streamline the logistics of a food business by tracking orders going through
+three stages: customer, kitchen, and waiter/delivery person. To achieve this, we need a comprehensive
+design of all the classes involved in the software.
+Some remarks and tips:
+• In terms of class design. You do not have to model the graphical user interface (GUI), only the
+back-end of the software. Meaning all classes that form the structure (the models, controllers
+and interfaces) of the software and how they relate.
+• Make sure to include the user and GUI as actor and lifeline in the sequence diagram.
+• You should however, include a class that acts as the API to the external ordering websites (Uber
+eats etc.). Think about how you could generalize this, internally you have one menu, but you
+must “present” this menu to different external services. Similarly, external services must be able
+to connect to your software to place orders. If you have no knowledge of how API’s work, you
+can either base the class on your own assumptions or first do some research online (search
+“REST API”) for examples and approaches.
+• A good starting point may be to first define the classes needed to model the software. Next, see
+which classes aggregate others. Can you make the design as compact as possible?
+• Once you think you have a correct diagram, write out the classes, make “sample” objects of your
+classes and see if your model still makes sense. Adjust if needed.
+• Consider that the class diagram and your “empty” classes should be sufficient to start
+implementing the project without having to change the structure later on. Multiple teams will
+start working on implementing the software and they must all be able to trust the design.
+• Check if your design can be structured into cohesive packages that have clear dependencies on
+other packages. At most one or two classes in a package should depend on another package.
+• The pricing strategy should be able to take into account any type of pricing that the customer
+wants. The three examples in the assignment are nothing more than examples. It's up to you to
+design a facility in your class diagram that allows programmers to create pricing strategies as
+"plug-in" classes. Think about what we talked about in the OOD lecture that would allow for
+such a mechanism
+• In your class diagram you may treat the web interface and API as "black boxes" you do not have
+to model them in detail. So just include one or two classes as you see fit that "create" orders for
+your system.
+• Consider that, in your class diagram you are modeling everything you need to consider to
+represent the statespace of your program. You are not modelling the flow of your program, but
+how to represent all the possible states your system can be in.
+• Please don't include any extra functionality in your design, only what is described in the
+assignment.
+• Is the kitchen an entity that you need to model in your class design?
+• Make sure you identify where instances, abstract classes and inheritance are needed (they are
+needed and we will include this in our grading).
